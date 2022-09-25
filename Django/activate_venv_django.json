@@ -6,7 +6,7 @@
         {
             "label": "Task1",
             "type": "shell",
-            "command": "echo 'cd..&cd..&&call Env\\scripts\\activate&&cd ${cwd}&&python manage.py runserver'| Out-File -FilePath ${cwd}\\Run.bat -Encoding Ascii", 
+            "command": "echo 'cd..&cd..&&call Env\\scripts\\activate&&cd ${cwd}&&python manage.py runserver &&cmd /k'| Out-File -FilePath ${cwd}\\Run.bat -Encoding Ascii", 
         },
         {
             "label": "Task2",
