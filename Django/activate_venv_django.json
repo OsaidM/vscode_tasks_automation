@@ -6,21 +6,36 @@
         {
             "label": "Task1",
             "type": "shell",
-            "command": "echo 'cd..&cd..&&call Env\\scripts\\activate&&cd ${cwd}&&python manage.py runserver &&cmd /k'| Out-File -FilePath ${cwd}\\Run.bat -Encoding Ascii", 
+            "command": "echo 'cd..&cd..&&call Env\\scripts\\activate&&cd ${cwd}&&django-admin startproject mysite &&cmd /k'| Out-File -FilePath ${cwd}\\create_project.bat -Encoding Ascii",
+            "hide": true
         },
         {
-            "label": "Task2",
+            "label": "Task11",
             "type": "shell",
-            "command":"start .\\Run.bat",
-            "dependsOn":["Task1"],
-            "dependsOrder": "sequence"
+            "command": "echo 'cd..&cd..&&call Env\\scripts\\activate&&cd ${cwd}&&python manage.py runserver &&cmd /k'| Out-File -FilePath ${cwd}\\start.bat -Encoding Ascii",
+            "hide": true
         },
         {
-            "label": "run_django",
+            "label": "Task22",
+            "type": "shell",
+            "command": "start .\\start.bat",
+            "dependsOn": ["Task11"],
+            "dependsOrder": "sequence",
+            "hide": true
+        },
+        {
+            "label": "Run Django",
             "type": "shell",
             "command": "start chrome.exe http://127.0.0.1:8000/",
-            "dependsOn":["Task2"],
+            "dependsOn": ["Task22"],
+            "dependsOrder": "sequence",
+        },
+        {
+            "label": "Create Django Project",
+            "type": "shell",
+            "command": "start .\\create_project.bat",
+            "dependsOn": ["Task1"],
             "dependsOrder": "sequence"
-        }
+        },
     ]
 }
