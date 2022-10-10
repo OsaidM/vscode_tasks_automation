@@ -5,3 +5,6 @@
   
   select the type of task to run, but please be careful of django task where it assumes your Environment inside a folder 2 levels behind,
   you can change it later if desired.
+
+
+## To Add your tasks on the user level for each workspace or folder you open, then you need to add tasks.json to this path "C:\Users\yourusername\AppData\Roaming\Code\User".
